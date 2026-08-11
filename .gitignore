@@ -1,0 +1,59 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+ENV/
+
+# Data files
+data/raw_logs/*
+data/raw_logs
+data/raw_logs/stb/
+data/raw_logs/stv/
+stb/data/raw_logs/*
+stb/data/processed/*
+stb/data/models/*.pkl
+stv/data/raw_logs/*
+stv/data/processed/*
+stv/data/models/*.pkl
+
+# Keep structure
+!.gitkeep
+
+# Logs
+logs/*.log
+*.log
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Environment
+.env
+.env.local
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Database
+*.db
+*.sqlite
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+data/raw_logs/stb/**/*.txt
+
+/data
+dvc-credentials.json

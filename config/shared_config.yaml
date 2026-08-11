@@ -1,0 +1,18 @@
+# Shared configuration for both STB and STV
+
+feature_extraction:
+  time_window: 60  # seconds
+  features:
+    - "error_count"
+    - "warning_count"
+    - "events_per_second"
+    - "cpu_usage"
+    - "memory_usage"
+    - "gc_frequency"
+    - "buffer_usage"
+    - "network_latency"
+    - "frame_drops"
+
+pca:
+  n_components: 5
+  

@@ -1,0 +1,41 @@
+device_type: "stv"
+device_models:
+  - "Samsung TU7000"
+  - "Sony X85J"
+  - "LG OLED C1"
+
+database:
+  host: "localhost"
+  port: 5432
+  name: "stv_qa"
+  user: "alberto"
+  password: "claro2026"
+
+paths:
+  raw_logs: "stv/data/raw_logs"
+  processed: "stv/data/processed"
+  models: "stv/data/models"
+
+models:
+  crash_predictor:
+    model_type: "xgboost"
+    n_estimators: 100
+    max_depth: 7
+    learning_rate: 0.1
+  
+  anomaly_detector:
+    model_type: "gaussian"
+    contamination: 0.1
+  
+  performance_comparator:
+    model_type: "kmeans"
+    n_clusters: 5
+
+api:
+  host: "0.0.0.0"
+  port: 8002
+  reload: true
+
+logging:
+  level: "INFO"
+  file: "logs/stv_app.log"

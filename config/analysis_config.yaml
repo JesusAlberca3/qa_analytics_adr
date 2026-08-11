@@ -1,0 +1,48 @@
+# Configuración del flujo oficial de análisis (scripts + notebooks)
+# Ver docs/FLUJO_OFICIAL.md
+
+time_window_seconds: 60
+
+degradation:
+  # Fallback absoluto; preferir métricas "clean" + MAD
+  error_rate: 0.06
+  fatal_count: 1
+
+spikes:
+  # MAD z = 0.6745 * (x - median) / MAD ; umbral típico 3.0–3.5
+  mad_z_threshold: 3.5
+  min_errors_absolute: 20
+  # Si el primer minuto ya está alto vs media, no confiar solo en Z global
+  warn_if_high_from_start: true
+
+cooccurrence:
+  # PMI mínimo para reportar pares de tags en minutos pico
+  min_pmi: 0.5
+  top_pairs: 10
+
+noise_tags:
+  - WifiVendorHal
+  - adbd
+  - libc
+  - gralloc4
+  - MtkTvTime
+  - TimeMsgProcess
+  - AuthPII
+  - newrelic
+  - e2prom
+  - HotPlugDetectionAction
+  - System.err
+  - OomAdjuster
+  - CompatibilityChangeReporter
+  - TrustedTimeHelper
+
+claro_message_pattern: "(?i)(claro|amx\\.?|clarotv|launcher|com\\.amx)"
+
+paths:
+  processed: "data/processed_logs"
+  plots: "data/plots"
+  pdfs: "data/pdfs"
+
+batch:
+  default_workers: 4
+  glob: "*.txt"
